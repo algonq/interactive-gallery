@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('background.jpg'); /* Set background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+      margin-bottom: 20px;
+    }
+    .thumbnail {
+        cursor: pointer;
+        width: 200px; /* Set the width */
+        height: 150px; /* Set the height */
+        margin: 10px;
+        border: 6px solid #ccc; /* Increase border size */
+        transition: transform 0.3s, border-color 0.3s;
+        object-fit: cover; /* Ensure images cover the area without stretching */
+      }
+    
+    .thumbnail {
+      cursor: pointer;
+      width: 200px;
+      margin: 10px;
+      border: 6px solid #ccc; /* Increase border size */
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    
+    <img src="1.jpg" alt="Caption for image 1" class="thumbnail" onclick="openModal(this)">
+    <img src="2.jpg" alt="Caption for image 2" class="thumbnail" onclick="openModal(this)">
+    <img src="3.jpg" alt="Caption for image 3" class="thumbnail" onclick="openModal(this)">
+    <img src="4.jpg" alt="Caption for image 4" class="thumbnail" onclick="openModal(this)">
+    <img src="5.jpg" alt="Caption for image 5" class="thumbnail" onclick="openModal(this)">
+    <img src="20.jpg" alt="Caption for image 6" class="thumbnail" onclick="openModal(this)">
+    <img src="7.jpg" alt="Caption for image 7" class="thumbnail" onclick="openModal(this)">
+    <img src="8.jpg" alt="Caption for image 8" class="thumbnail" onclick="openModal(this)">
+    <img src="9.jpg" alt="Caption for image 9" class="thumbnail" onclick="openModal(this)">
+    <img src="1.jpg" alt="Caption for image 10" class="thumbnail" onclick="openModal(this)">
+    <img src="11.jpg" alt="Caption for image 11" class="thumbnail" onclick="openModal(this)">
+    <img src="12.jpg" alt="Caption for image 12" class="thumbnail" onclick="openModal(this)">
+    <img src="13.jpg" alt="Caption for image 13" class="thumbnail" onclick="openModal(this)">
+    <img src="14.jpg" alt="Caption for image 14" class="thumbnail" onclick="openModal(this)">
+    <img src="15.jpg" alt="Caption for image 15" class="thumbnail" onclick="openModal(this)">
+    <img src="16.jpg" alt="Caption for image 16" class="thumbnail" onclick="openModal(this)">
+    <img src="17.jpg" alt="Caption for image 17" class="thumbnail" onclick="openModal(this)">
+    <img src="18.jpg" alt="Caption for image 18" class="thumbnail" onclick="openModal(this)">
+    <img src="19.jpg" alt="Caption for image 19" class="thumbnail" onclick="openModal(this)">
+    <img src="20.jpg" alt="Caption for image 20" class="thumbnail" onclick="openModal(this)">
+  </div>
+
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    function openModal(img) {
+      document.getElementById('myModal').style.display = "block";
+      document.getElementById('img01').src = img.src;
+      document.getElementById('caption').innerHTML = img.alt;
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = "none";
+    }
+  </script>
+</body>
+</html>

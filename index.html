@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Image Gallery</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('background.jpg'); /* Set background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #FFD700; /* Change the color to bright yellow */
+      text-shadow: 2px 2px 4px #000000;
+      margin-bottom: 20px;
+      font-size: 3em;
+    }
+    
+    .thumbnail {
+      cursor: pointer;
+      width: 200px; /* Set a fixed width */
+      height: 150px; /* Set a fixed height */
+      margin: 10px;
+      border: 6px solid #ccc; /* Increase border size */
+      transition: transform 0.3s, border-color 0.3s;
+      object-fit: cover; /* Ensure images cover the area without distortion */
+    }
+    
+    .thumbnail:hover {
+      transform: scale(1.05);
+      border-color: #777; /* Change border color on hover */
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.5s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      animation: zoomIn 0.5s;
+    }
+    
+    @keyframes zoomIn {
+      from { transform: scale(0.7); }
+      to { transform: scale(1); }
+    }
+    
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+    }
+    
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Interactive Image Gallery</h1>
+    <img src="1.jpg"alt="Stunning Sunset Over the Ocean - A vibrant orange and pink sky meeting the tranquil blue waters." class="thumbnail" onclick="openModal(this)">
+    <img src="2.jpg" alt="City Skyline at Night - The dazzling lights of a bustling metropolis against a dark sky." class="thumbnail" onclick="openModal(this)">
+    <img src="3.webp" alt="Serene Lake Reflection - A calm lake mirroring the lush green trees and clear blue sky." class="thumbnail" onclick="openModal(this)">
+    <img src="4.jpg" alt="Majestic Waterfall - A powerful cascade of water surrounded by verdant foliage." class="thumbnail" onclick="openModal(this)">
+    <img src="5.jpg" alt="Desert Dunes at Dusk - Warm golden sands shifting under a deep purple twilight sky." class="thumbnail" onclick="openModal(this)">
+    <img src="6.jpg" alt="Cherry Blossom Grove - Delicate pink petals floating through a peaceful park setting." class="thumbnail" onclick="openModal(this)">
+    <img src="7.jpg" alt="Vibrant Market Street - Colorful stalls and lively crowds in a bustling local market." class="thumbnail" onclick="openModal(this)">
+    <img src="8.webp" alt="Snowy Mountain Peak - A pristine snow-covered summit against a clear blue sky." class="thumbnail" onclick="openModal(this)">
+    <img src="9.jpg" alt="Autumn Forest Path - A trail covered in golden leaves with trees in shades of orange and red." class="thumbnail" onclick="openModal(this)">
+    <img src="10.webp" alt="Tropical Beach Paradise - White sandy beaches with turquoise waters and palm trees swaying." class="thumbnail" onclick="openModal(this)">
+    <img src="11.webp" alt="Ancient Temple Ruins - Weathered stone structures amidst lush jungle greenery." class="thumbnail" onclick="openModal(this)">
+    <img src="12.avif" alt="Colorful Hot Air Balloons - A sky filled with vibrant balloons floating over a picturesque landscape." class="thumbnail" onclick="openModal(this)">
+    <img src="13.avif" alt="Rustic Farmhouse - A charming countryside home surrounded by rolling fields and wildflowers." class="thumbnail" onclick="openModal(this)">
+    <img src="14.avif" alt="Cosmic Nebula - A breathtaking view of a nebula with swirling colors and stars." class="thumbnail" onclick="openModal(this)">
+    <img src="15.avif" alt="Underwater Coral Reef - A vibrant underwater scene with colorful coral and exotic fish." class="thumbnail" onclick="openModal(this)">
+    <img src="16.jpg" alt="Lush Vineyard - Rows of grapevines stretching across a sunny hillside." class="thumbnail" onclick="openModal(this)">
+    <img src="17.webp" alt="Glistening Ice Cave - A shimmering blue ice cave with intricate formations." class="thumbnail" onclick="openModal(this)">
+    <img src="18.jpg" alt="Sculpted Sand Dunes - Dramatic wind-sculpted sand formations in a desert landscape." class="thumbnail" onclick="openModal(this)">
+    <img src="19.jpg" alt="Glistening Cityscape - A dazzling view of a city skyline with lights reflecting off a river." class="thumbnail" onclick="openModal(this)">
+    <img src="20.jpg" alt="Bright Spring Meadow - A field of colorful wildflowers under a bright blue sky." class="thumbnail" onclick="openModal(this)">
+    
+  </div>
+
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    function openModal(img) {
+      document.getElementById('myModal').style.display = "block";
+      document.getElementById('img01').src = img.src;
+      document.getElementById('caption').innerHTML = img.alt;
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = "none";
+    }
+  </script>
+</body>
+</html>
